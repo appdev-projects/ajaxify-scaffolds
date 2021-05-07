@@ -11,6 +11,14 @@
   </head>
 
   <body>
+    <nav>
+      <ul>
+        <li><%= link_to "Movies", root_path %></li>
+        <li><%= link_to "Directors", directors_path %></li>
+        <li><%= link_to "Actors", actors_path %></li>
+        <li><%= link_to "Characters", characters_path %></li>
+      </ul>
+    </nav>
     <%= yield %>
   </body>
 </html>
