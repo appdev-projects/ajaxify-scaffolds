@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_145839) do
+ActiveRecord::Schema.define(version: 2021_05_07_150012) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -23,6 +23,16 @@ ActiveRecord::Schema.define(version: 2021_05_07_145839) do
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "characters", force: :cascade do |t|
+    t.string "name"
+    t.bigint "actor_id", null: false
+    t.bigint "movie_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["actor_id"], name: "index_characters_on_actor_id"
+    t.index ["movie_id"], name: "index_characters_on_movie_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -122,6 +132,8 @@ ActiveRecord::Schema.define(version: 2021_05_07_145839) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "characters", "actors"
+  add_foreign_key "characters", "movies"
   add_foreign_key "comments", "photos"
   add_foreign_key "comments", "users", column: "author_id"
   add_foreign_key "follow_requests", "users", column: "recipient_id"
