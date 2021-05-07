@@ -6,7 +6,7 @@ class CreateMovies < ActiveRecord::Migration[6.1]
       t.integer :duration
       t.string :image
       t.integer :year
-      t.references :director, null: false, foreign_key: true
+      t.references :director, null: true, foreign_key: true, index: true
 
       t.timestamps
     end
