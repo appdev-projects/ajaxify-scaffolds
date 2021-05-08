@@ -41,3 +41,35 @@ Look at the previous commits in the repo for more details.
 ## Next steps
 
 Ajaxify each interaction; I started with `movies#destroy`, `movies#create`, `movies#edit`.
+
+## Advanced tips
+
+To submit a form via Rails Ajax when a dropdown is changed:
+
+ - In `app/javascript/packs/application.js`, change Line 6 from:
+
+    ```js
+    import Rails from "@rails/ujs"
+    ```
+
+    To:
+
+    ```js
+    import Rails, { $ } from "@rails/ujs"; global.Rails = Rails;
+    ```
+ - Now, on `<select>` elements, you can add an `onchange=""` attribute with a bit of JS in it:
+
+    ```js
+    onchange="Rails.fire(this.form, 'submit')"
+    ```
+
+    This will cause the form to be submitted via Rails UJS as soon as the user changes the value in the `<select>`.
+
+ - To add the `onchange` (or any other HTML attribute) to a `<select>` if you're using the `form.collection_select` helper method, it would look something like:
+
+    ```erb
+    <%= form.collection_select :director_id, Director.order(:name), :id, :name, {}, onchange: 'Rails.fire(this.form, "submit")' %>
+    ```
+  
+    Note the fifth argument; this is a required `Hash` of arguments that are specific to the `<select>` (like `:prompt`), and then the optional sixth argument is where you can put any HTML attributes you'd like to add to the `<select>`. [Reference](https://api.rubyonrails.org/v5.1.7/classes/ActionView/Helpers/FormOptionsHelper.html#method-i-collection_select)
+    
