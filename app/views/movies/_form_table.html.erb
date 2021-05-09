@@ -28,7 +28,7 @@
         <td> 
           <div class="field">
             <%= form.label :director_id %>
-            <%= form.text_field :director_id %>
+            <%= form.collection_select :director_id, @directors.order(:name), :id, :name %>
           </div> 
         </td>
         <td> 
