@@ -1,15 +1,18 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+ <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>  -->
 
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VanillaRails</title>
+    <title>Ajaxify Scaffolds</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= render "shared/cdn_assets" %>
+
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
+
   </head>
 
   <body>
