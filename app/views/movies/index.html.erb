@@ -15,8 +15,11 @@
   </thead>
 
   <tbody>
+    <tr>
+      <%= render 'form', movie: @movie %>
+    </tr>
     <% @movies.each do |movie| %>
-      <tr>
+      <tr id= "movie_<%= movie.id %>">
         <td><%= movie.title %></td>
         <td><%= movie.description %></td>
         <td><%= movie.duration %></td>
