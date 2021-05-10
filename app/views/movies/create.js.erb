@@ -1,1 +1,1 @@
-$("#new_movie").after('<tr><td>New data</td><td>more new data</td></tr>' );
+$("#new_movie").after('<tr><td><%= @movie.title %></td><td><%= @movie.year %></td><td><%= @movie.director.name %></td><td><%= @movie.description %></td><td><%= @movie.duration %></td></tr>');
