@@ -14,24 +14,16 @@
     </tr>
   </thead>
 
-  <tbody>
+
+  <%= render 'form', movie: @movie %>
+
+
+  <tbody id="movies">
     <% @movies.each do |movie| %>
-      <tr id="<%= dom_id(movie) %>">
-        <td><%= movie.title %></td>
-        <td><%= movie.description %></td>
-        <td><%= movie.duration %></td>
-        <td><%= movie.year %></td>
-        <td><%= movie.director_id %></td>
-        <td><%= link_to 'Show', movie %></td>
-        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, remote: true %>
-        
-        </td>
-      </tr>
+      <%= render 'table_row', movie: movie %>  
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Movie', new_movie_path %>

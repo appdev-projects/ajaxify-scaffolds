@@ -1,4 +1,5 @@
-<%= form_with(model: movie) do |form| %>
+
+<%= form_with(model: movie, local: false) do |form| %>
   <% if movie.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
@@ -10,38 +11,46 @@
       </ul>
     </div>
   <% end %>
+  <tr>  
+    <td>
+      <div class="field">
+        <%= form.label :title %>
+        <%= form.text_field :title %>
+      </div>
+    </td>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+    <td>
+      <div class="field">
+        <%= form.label :description %>
+        <%= form.text_area :description %>
+      </div>
+    </td>
+    
+    <td>  
+      <div class="field">
+        <%= form.label :duration %>
+        <%= form.number_field :duration %>
+      </div>
+    </td>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
+    
+    <td>
+      <div class="field">
+        <%= form.label :year %>
+        <%= form.number_field :year %>
+      </div>
+    </td>
+    <td>
+      <div class="field">
+        <%= form.label :director_id %>
+        <%= form.text_field :director_id %>
+      </div>
+    </td>
 
-  <div class="field">
-    <%= form.label :duration %>
-    <%= form.number_field :duration %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :year %>
-    <%= form.number_field :year %>
-  </div>
-
-  <div class="field">
-    <%= form.label :director_id %>
-    <%= form.text_field :director_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <td>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  </td>
+  </tr>
 <% end %>
