@@ -26,7 +26,7 @@ class MoviesController < ApplicationController
     
       #format.js { render template: "movies/edit_title.js.erb" }
       respond_to do |format|
-        format.js
+        format.js {render template: "movies/edit_title.js.erb"}
       end
     
   end
