@@ -21,8 +21,8 @@
   <tbody id="movies">
   
     <% @movies.each do |movie| %>
-      <tr id= "movie_<%= movie.id %>">
-        <td><%= movie.title %></td>
+        <tr id= "movie_<%= movie.id %>">
+        <td><%= link_to movie.title, edit_movie_path(movie) %></td>
         <td><%= movie.description %></td>
         <td><%= movie.duration %></td>
         <td><%= movie.year %></td>

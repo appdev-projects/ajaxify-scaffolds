@@ -20,6 +20,9 @@ class MoviesController < ApplicationController
   def edit
   end
 
+  def edit_title
+  end
+  
   # POST /movies or /movies.json
   def create
     @movie = Movie.new(movie_params)
