@@ -1,0 +1,12 @@
+<%= form_with(model: @movie, :html => { :id => "movie_title" }, local: false) do |form| %>
+
+
+  <td>
+    
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    
+  </td>
+
+
+<% end %>
