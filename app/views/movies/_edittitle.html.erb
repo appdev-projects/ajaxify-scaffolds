@@ -1,1 +1,8 @@
-Howdy
+
+
+<td>
+<%= form_with(model: movie, local: false, :html => { :id => "edit_movie_form" }) do |form| %>
+      
+      <%= form.text_field :title %>
+<% end %>
+</td>
