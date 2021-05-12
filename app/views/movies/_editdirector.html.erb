@@ -3,6 +3,8 @@
 <td>
 <%= form_with(model: movie, local: false, :html => { :id => "edit_director_form" }) do |form| %>
       
+    
+
       <%= form.collection_select :director_id, Director.order(:name), :id, :name, {}, onchange: 'Rails.fire(this.form, "submit")' %>
 <% end %>
 </td>
