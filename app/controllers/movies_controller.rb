@@ -85,7 +85,7 @@ class MoviesController < ApplicationController
       if @movie.update(movie_params)
         format.html { redirect_to @movie, notice: "Movie was successfully updated." }
         format.json { render :show, status: :ok, location: @movie }
-        format.js
+        format.js { render template: "movies/update_director.js.erb"}
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @movie.errors, status: :unprocessable_entity }
