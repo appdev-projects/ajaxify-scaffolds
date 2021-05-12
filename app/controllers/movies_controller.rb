@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: %i[ show edit update destroy ]
+  before_action :set_movie, only: %i[ show edit update destroy edit_field ]
 
   # GET /movies or /movies.json
   def index
@@ -58,6 +58,8 @@ class MoviesController < ApplicationController
       end
     end
   end
+
+
 
   # DELETE /movies/1 or /movies/1.json
   def destroy

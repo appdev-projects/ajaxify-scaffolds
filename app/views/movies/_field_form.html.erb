@@ -1,5 +1,5 @@
 <td>
-  <%= form_with(model: movie) do |form| %>
+  <%= form_with(model: movie, local: false) do |form| %>
     <%= form.text_field @field %>
   <% end %>
 </td>

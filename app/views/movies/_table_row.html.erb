@@ -12,11 +12,17 @@
             <p><%= movie.description %></p>
           </details>
         </td>
-        <td><%= movie.duration %></td>
-        <td><%= movie.year %></td>
+        <td>
+          <div id="<%= dom_id(movie) %>_duration">
+            <%= link_to movie.duration, "/movies/#{movie.id}/duration/edit", remote: true %>
+          </div>
+        </td>
+        <td>
+          <div id="<%= dom_id(movie) %>_year">
+            <%= link_to movie.year, "/movies/#{movie.id}/year/edit", remote: true %>
+          </div>
+        </td>
         <td><%= movie.director.name %></td>
-        <td><%= link_to 'Show', movie %></td>
-        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
         <td><%= link_to 'Destroy', movie, method: :delete, remote: true %>
         
         </td>

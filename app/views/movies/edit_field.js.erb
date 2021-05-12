@@ -1,5 +1,4 @@
-console.log("this works")
-
 var updated_field = $("<%= j(render 'movies/field_form', movie: @movie, movie_id: @movie_id, field: @field ) %>");
 
 $("#movie_<%= @movie_id %>_<%= @field %>").replaceWith(updated_field);
+
