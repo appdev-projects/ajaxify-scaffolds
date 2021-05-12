@@ -61,7 +61,7 @@ class MoviesController < ApplicationController
   def update
     @title = params.fetch(:movie).fetch(:title)
 
-    
+
     #@director_id = params.fetch(:movie).fetch(:director_id)
     respond_to do |format|
       if @movie.update(movie_params)
@@ -77,7 +77,10 @@ class MoviesController < ApplicationController
   #PATCH "/movies/:id/director_id/update"
   def update_director
     #@title = params.fetch(:movie).fetch(:title)
-    
+    @title = @movie.title
+    @director_id = @movie.director_id
+
+
     respond_to do |format|
       if @movie.update(movie_params)
         format.html { redirect_to @movie, notice: "Movie was successfully updated." }

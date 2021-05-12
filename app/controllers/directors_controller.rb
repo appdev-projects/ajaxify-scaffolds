@@ -22,6 +22,7 @@ class DirectorsController < ApplicationController
   # POST /directors or /directors.json
   def create
     @director = Director.new(director_params)
+    
 
     respond_to do |format|
       if @director.save
