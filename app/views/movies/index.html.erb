@@ -26,7 +26,7 @@
         <td><%= movie.description %></td>
         <td><%= movie.duration %></td>
         <td><%= movie.year %></td>
-        <td><%= movie.director_id %></td>
+        <td id= "director"><%= link_to movie.director.name, edit_director_path(movie), remote: true %></td>
         <td><%= link_to 'Show', movie %></td>
         <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
         <td><%= link_to 'Destroy', movie, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>

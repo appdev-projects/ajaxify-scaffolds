@@ -1,0 +1,3 @@
+$('#<%=dom_id(@movie)%> #director').replaceWith("<%= j(render "movies/editdirector.html.erb", movie: @movie )%>");
+
+console.log("<%= j(render "movies/edittitle.html.erb", movie: @movie )%>")
