@@ -1,4 +1,4 @@
-
+<div>
 <%= form_with(model: movie, local: false) do |form| %>
   <% if movie.errors.any? %>
     <div id="error_explanation">
@@ -42,8 +42,8 @@
     </td>
     <td>
       <div class="field">
-        <%= form.label :director_id %>
-        <%= form.text_field :director_id %>
+        <%= form.label :director_name %>
+        <%= form.collection_select :director_id, Director.order(:name),:id,:name, include_blank: true %>
       </div>
     </td>
 
@@ -54,3 +54,4 @@
   </td>
   </tr>
 <% end %>
+</div>

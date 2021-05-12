@@ -1,5 +1,16 @@
-<td>
-  <%= form_with(model: movie, local: false) do |form| %>
-    <%= form.text_field @field %>
-  <% end %>
-</td>
+
+<% if @field == "director"%>
+  <td>
+    <%= form_with(model: movie, local: false) do |form| %>
+      <%= form.collection_select :director_id, Director.order(:name),:id,:name,{}, onchange: 'Rails.fire(this.form, "submit")' %>
+    <% end %>
+  </td>
+
+<% else %>
+  <td>
+    <%= form_with(model: movie, local: false) do |form| %>
+      <%= form.text_field @field %>
+    <% end %>
+  </td>
+
+<% end %>

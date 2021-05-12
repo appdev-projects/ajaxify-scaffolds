@@ -26,7 +26,11 @@
             <%= link_to movie.year, "/movies/#{movie.id}/year/edit", remote: true %>
           </div>
         </td>
-        <td><%= movie.director.name %></td>
+        <td>
+          <div id="<%= dom_id(movie) %>_director">
+            <%= link_to movie.director.name, "/movies/#{movie.id}/director/edit", remote: true %>
+          </div>
+        </td>
         <td><%= link_to 'Destroy', movie, method: :delete, remote: true %>
         
         </td>
