@@ -8,8 +8,12 @@
 
         <td>
           <details>
-            <summary>Show desccription</summary>
-            <p><%= movie.description %></p>
+            <summary>Show description</summary>
+              <p>
+                <div id="<%= dom_id(movie) %>_description">
+                  <%= link_to movie.description, "/movies/#{movie.id}/description/edit", remote: true %>
+                </div>
+              </p>
           </details>
         </td>
         <td>
