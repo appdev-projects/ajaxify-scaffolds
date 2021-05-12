@@ -31,6 +31,16 @@ class MoviesController < ApplicationController
     
   end
 
+  def edit_director
+    @movie = Movie.find(params[:id])
+    
+      #format.js { render template: "movies/edit_title.js.erb" }
+      respond_to do |format|
+        format.js {render template: "movies/edit_director.js.erb"}
+      end
+    
+  end
+
   # POST /movies or /movies.json
   def create
     @movie = Movie.new(movie_params)
