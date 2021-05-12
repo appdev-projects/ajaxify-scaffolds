@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: %i[ show edit update destroy ]
+  before_action :set_movie, only: %i[ show edit update destroy update_director]
 
   # GET /movies or /movies.json
   def index
@@ -60,7 +60,9 @@ class MoviesController < ApplicationController
   # PATCH/PUT /movies/1 or /movies/1.json
   def update
     @title = params.fetch(:movie).fetch(:title)
-    @director_id = params.fetch(:movie).fetch(:director_id)
+
+    
+    #@director_id = params.fetch(:movie).fetch(:director_id)
     respond_to do |format|
       if @movie.update(movie_params)
         format.html { redirect_to @movie, notice: "Movie was successfully updated." }
@@ -72,10 +74,10 @@ class MoviesController < ApplicationController
       end
     end
   end
-
+  #PATCH "/movies/:id/director_id/update"
   def update_director
-    @title = params.fetch(:movie).fetch(:title)
-    @director_id = params.fetch(:movie).fetch(:director_id)
+    #@title = params.fetch(:movie).fetch(:title)
+    
     respond_to do |format|
       if @movie.update(movie_params)
         format.html { redirect_to @movie, notice: "Movie was successfully updated." }
