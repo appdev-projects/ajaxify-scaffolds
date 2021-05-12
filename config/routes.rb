@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get "/movies/:id/title/edit" => "movies#edit_title", as: :edit_title
   get "/movies/:id/director_id/edit" => "movies#edit_director", as: :edit_director
+  patch "/movies/:id/director_id/update" => "movies#update_director"
 
   resources :characters
   resources :actors

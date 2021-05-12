@@ -73,6 +73,21 @@ class MoviesController < ApplicationController
     end
   end
 
+  def update_director
+    @title = params.fetch(:movie).fetch(:title)
+    @director_id = params.fetch(:movie).fetch(:director_id)
+    respond_to do |format|
+      if @movie.update(movie_params)
+        format.html { redirect_to @movie, notice: "Movie was successfully updated." }
+        format.json { render :show, status: :ok, location: @movie }
+        format.js
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @movie.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   # DELETE /movies/1 or /movies/1.json
   def destroy
     @movie.destroy

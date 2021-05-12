@@ -1,7 +1,7 @@
 
 
 <td>
-<%= form_with(model: movie, local: false, :html => { :id => "edit_director_form" }) do |form| %>
+<%= form_with(model: @movie, url: "/movies/#{@movie.id}/director_id/update", method: :patch, local: false, :html => { :id => "edit_director_form" }) do |form| %>
       
     
 
