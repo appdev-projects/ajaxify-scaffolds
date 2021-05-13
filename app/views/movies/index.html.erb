@@ -27,7 +27,8 @@
     <% @movies.each do |movie| %>
       <tr id= "movie_<%= movie.id %>">
         <td id= "title"><%= link_to movie.title, edit_title_path(movie), remote:true %></td>
-        <td><%= movie.year %></td>
+         <td id= "year"><%= link_to movie.year, edit_year_path(movie), remote:true %></td>
+        
         <td id= "director"><%= link_to movie.director.name, edit_director_path(movie), remote: true %></td>
         <td>
           <div id="movie_<%= movie.id %>_description">

@@ -1,0 +1,7 @@
+
+<td>
+<%= form_with(model: movie,  url: "/movies/#{@movie.id}/year/update", local: false, :html => { :id => "edit_year_form" }) do |form| %>
+      
+      <%= form.number_field :year %>
+<% end %>
+</td>
