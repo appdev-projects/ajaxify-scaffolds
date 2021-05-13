@@ -37,7 +37,13 @@
         <label for="movie_year">Year</label>
         <input type="number" name="movie[year]" id="movie_year" />
       </td>
-
+      
+      <td class="actions">
+        <% render 'form', movie: @movie %>
+        <input type="submit" name="commit" value="Create Movie">
+      </td>
+    
+    </tr>
       <td>
         <label for="movie_director_id">Director</label>
         <select name="movie_director_id" id="movie_director_id"><option value="14">Akira Kurosawa</option>
@@ -84,8 +90,8 @@
         <td><%= movie.year %></td>
         <td><%= movie.director_id %></td>
         <td><%= link_to 'Show', movie %></td>
-        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_movie_path(movie), remote: true %></td>
+        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
       </tr>
     <% end %>
   </tbody>
