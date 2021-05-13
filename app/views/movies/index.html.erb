@@ -45,7 +45,21 @@
         <td><%= movie.duration %></td>
         
         
-        <td><%= link_to 'Show', movie %></td>
+        <td>
+        
+             <div id="movie_<%= movie.id %>_image">
+                  <details>
+                    <summary>
+                      Show Image
+                    </summary>
+                    
+                    <p><%=image_tag( movie.image) %></p>
+
+                    <%= link_to 'Edit', edit_description_path(movie), remote: true %>
+                    </details>
+            </div>
+        
+        </td>
         
         <td><%= link_to 'Destroy', movie, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
