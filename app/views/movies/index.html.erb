@@ -14,7 +14,68 @@
     </tr>
   </thead>
 
+
   <tbody>
+    <tr>
+      <td>
+        <label for="movie_title">Title</label>
+        <input type="text" name="movie[title]" id="movie_title" />
+      </td>
+
+      <td>
+        <label for="movie_description">Description</label>
+        <textarea name="movie[description]" id="movie_description">
+        </textarea>
+      </td>
+      
+      <td>
+        <label for="movie_duration">Duration</label>
+        <input type="number" name="movie[duration]" id="movie_duration" />
+      </td>
+
+      <td>
+        <label for="movie_year">Year</label>
+        <input type="number" name="movie[year]" id="movie_year" />
+      </td>
+
+      <td>
+        <label for="movie_director_id">Director</label>
+        <select name="movie_director_id" id="movie_director_id"><option value="14">Akira Kurosawa</option>
+          <option value="21">Alfred Hitchcock</option>
+          <option value="24">Billy Wilder</option>
+          <option value="20">Bryan Singer</option>
+          <option value="27">Charles Chaplin</option>
+          <option value="5">Christopher Nolan</option>
+          <option value="9">David Fincher</option>
+          <option value="2">Francis Ford Coppola</option>
+          <option value="22">Frank Capra</option>
+          <option value="1">Frank Darabont</option>
+          <option value="34">Fritz Lang</option>
+          <option value="13">George Lucas</option>
+          <option value="30">Hayao Miyazaki</option>
+          <option value="10">Irvin Kershner</option>
+          <option value="26">James Cameron</option>
+          <option value="18">Jonathan Demme</option>
+          <option value="17">Kátia Lund</option>
+          <option value="16">Lilly Wachowski</option>
+          <option value="23">Luc Besson</option>
+          <option value="12">Martin Scorsese</option>
+          <option value="19">Michael Curtiz</option>
+          <option value="11">Milos Forman</option>
+          <option value="31">Orson Welles</option>
+          <option value="8">Peter Jackson</option>
+          <option value="3">Quentin Tarantino</option>
+          <option value="29">Ridley Scott</option>
+          <option value="32">Roberto Benigni</option>
+          <option value="15">Robert Zemeckis</option>
+          <option value="33">Roman Polanski</option>
+          <option value="4">Sergio Leone</option>
+          <option value="6">Sidney Lumet</option>
+          <option value="28">Stanley Kubrick</option>
+          <option value="7">Steven Spielberg</option>
+          <option value="25">Tony Kaye</option></select>
+        </td>
+    </tr>
     <% @movies.each do |movie| %>
       <tr>
         <td><%= movie.title %></td>
