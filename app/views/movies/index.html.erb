@@ -43,7 +43,8 @@
           </div>
         
         </td>
-        <td><%= movie.duration %></td>
+        <td id= "duration"><%= link_to movie.duration, edit_duration_path(movie), remote:true %></td>
+       
         
         
         <td>
