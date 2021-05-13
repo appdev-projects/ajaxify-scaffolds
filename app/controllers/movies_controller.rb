@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: %i[ show edit update destroy update_director update_description]
+  before_action :set_movie, only: %i[ show edit update destroy update_director update_description update_image]
 
   # GET /movies or /movies.json
   def index
@@ -126,6 +126,26 @@ class MoviesController < ApplicationController
         format.html { redirect_to @movie, notice: "Movie was successfully updated." }
         format.json { render :show, status: :ok, location: @movie }
         format.js { render template: "movies/update_description.js.erb"}
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @movie.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update_image
+    #@title = params.fetch(:movie).fetch(:title)
+    @title = @movie.title
+    @director_id = @movie.director_id
+    @description = @movie.description
+    @image = @movie.image
+
+
+    respond_to do |format|
+      if @movie.update(movie_params)
+        format.html { redirect_to @movie, notice: "Movie was successfully updated." }
+        format.json { render :show, status: :ok, location: @movie }
+        format.js { render template: "movies/update_image.js.erb"}
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @movie.errors, status: :unprocessable_entity }

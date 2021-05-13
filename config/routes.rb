@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   patch "/movies/:id/director_id/update" => "movies#update_director"
   patch "/movies/:id/description/update" => "movies#update_description"
+  patch "/movies/:id/image/update" => "movies#update_image"
 
   resources :characters
   resources :actors
