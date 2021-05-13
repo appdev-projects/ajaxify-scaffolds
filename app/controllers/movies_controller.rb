@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: %i[ show edit update destroy update_director update_description update_image]
+  before_action :set_movie, only: %i[ show edit update destroy update_director update_description update_image update_duration]
 
   # GET /movies or /movies.json
   def index
@@ -57,6 +57,16 @@ class MoviesController < ApplicationController
       #format.js { render template: "movies/edit_title.js.erb" }
       respond_to do |format|
         format.js {render template: "movies/edit_image.js.erb"}
+      end
+    
+  end
+
+    def edit_duration
+    @movie = Movie.find(params[:id])
+    
+      #format.js { render template: "movies/edit_title.js.erb" }
+      respond_to do |format|
+        format.js {render template: "movies/edit_duration.js.erb"}
       end
     
   end
@@ -146,6 +156,28 @@ class MoviesController < ApplicationController
         format.html { redirect_to @movie, notice: "Movie was successfully updated." }
         format.json { render :show, status: :ok, location: @movie }
         format.js { render template: "movies/update_image.js.erb"}
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @movie.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def update_duration
+    #@title = params.fetch(:movie).fetch(:title)
+    @title = @movie.title
+    @director_id = @movie.director_id
+    @description = @movie.description
+    @image = @movie.image
+    @duration = @movie.duration
+
+
+    respond_to do |format|
+      if @movie.update(movie_params)
+        format.html { redirect_to @movie, notice: "Movie was successfully updated." }
+        format.json { render :show, status: :ok, location: @movie }
+        format.js
+        #format.js { render template: "movies/update_image.js.erb"}
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @movie.errors, status: :unprocessable_entity }
