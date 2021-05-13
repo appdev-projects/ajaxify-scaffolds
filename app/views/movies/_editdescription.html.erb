@@ -1,8 +1,10 @@
 <div>
-    <%= form_with(model: @movie, url: "/movies/#{@movie.id}/director_id/update", method: :patch, local: false, :html => { :id => "edit_director_form" }) do |form| %>
+    <%= form_with(model: @movie, url: "/movies/#{@movie.id}/description/update", method: :patch, local: false, :html => { :id => "edit_description_form" }) do |form| %>
           
         
 
-          <%= form.collection_select :director_id, Director.order(:name), :id, :name, {}, onchange: 'Rails.fire(this.form, "submit")' %>
+           <%= form.text_area :description %>
+
+           <%= form.button %>
     <% end %>
 </div>

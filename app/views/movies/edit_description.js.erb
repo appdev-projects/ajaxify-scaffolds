@@ -1,1 +1,3 @@
 console.log("TEST");
+
+$('#<%=dom_id(@movie)%>_description').replaceWith("<%= j(render "movies/editdescription.html.erb", movie: @movie )%>")
