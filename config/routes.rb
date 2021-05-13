@@ -5,4 +5,9 @@ Rails.application.routes.draw do
   resources :actors
   resources :directors
   resources :movies
+
+
+  get '/movies/:id/:field/edit', to: 'movies#edit_field'
+
+
 end

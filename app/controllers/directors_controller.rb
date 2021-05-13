@@ -27,6 +27,7 @@ class DirectorsController < ApplicationController
       if @director.save
         format.html { redirect_to @director, notice: "Director was successfully created." }
         format.json { render :show, status: :created, location: @director }
+        format.js
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @director.errors, status: :unprocessable_entity }

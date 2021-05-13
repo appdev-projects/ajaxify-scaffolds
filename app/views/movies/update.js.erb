@@ -1,0 +1,5 @@
+var updated_movie = $("<%= j(render 'movies/table_row', movie: @movie) %>");
+
+$("#movie_<%= @movie.id %>").replaceWith(updated_movie);
+
+
