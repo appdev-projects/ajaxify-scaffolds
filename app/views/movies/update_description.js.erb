@@ -1,0 +1,12 @@
+
+$('#edit_description_form').replaceWith(`<div id="movie_<%= @movie.id %>_description">
+                  <details>
+                    <summary>
+                      Show description
+                    </summary>
+                    
+                    <p><%= @movie.description %></p>
+
+                    <%=j( link_to 'Edit', edit_description_path(@movie), remote: true )%>
+                    </details>
+          </div>`);

@@ -1,0 +1,45 @@
+<!-- $("#movies").prepend("<tr id= "movie_<%= @movie.id %>">") -->
+
+$("#movies").prepend(`
+        <tr id= "movie_<%= @movie.id %>">
+        <td id= "title"><%= link_to @movie.title, edit_title_path(@movie), remote:true %></td>
+        <td><%= @movie.year %></td>
+        <td id= "director"><%= link_to @movie.director.name, edit_director_path(@movie), remote: true %></td>
+        <td>
+          <div id="movie_<%= @movie.id %>_description">
+                  <details>
+                    <summary>
+                      Show description
+                    </summary>
+                    
+                    <p><%= @movie.description %></p>
+
+                    <%= link_to 'Edit', edit_description_path(@movie), remote: true %>
+                    </details>
+          </div>
+        
+        </td>
+        <td><%= @movie.duration %></td>
+        
+        
+        <td>
+        
+                     <div id="movie_<%= @movie.id %>_image">
+                  <details>
+                    <summary>
+                      Show Image
+                    </summary>
+                    
+                    <p><%=image_tag( @movie.image) %></p>
+
+                    <%= link_to 'Edit', edit_image_path(@movie), remote: true %>
+                    </details>
+            </div>
+        </td>
+        
+        <td><%= link_to 'Destroy', @movie, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>"`);
+
+<!-- $("#movie_<%= @movie.id %>").show() -->
+
+$("#new_movie_form").trigger("reset");

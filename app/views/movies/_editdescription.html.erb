@@ -1,0 +1,10 @@
+<div>
+    <%= form_with(model: @movie, url: "/movies/#{@movie.id}/description/update", method: :patch, local: false, :html => { :id => "edit_description_form" }) do |form| %>
+          
+        
+
+           <%= form.text_area :description %>
+
+           <%= form.button %>
+    <% end %>
+</div>

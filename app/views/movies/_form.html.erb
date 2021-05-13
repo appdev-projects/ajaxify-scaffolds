@@ -1,4 +1,4 @@
-<%= form_with(model: movie) do |form| %>
+<%= form_with(model: movie, :html => { :id => "new_movie_form" }, local: false) do |form| %>
   <% if movie.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
@@ -11,37 +11,56 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
+  <td>
+    
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    
+  </td>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :duration %>
-    <%= form.number_field :duration %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.text_field :image %>
-  </div>
-
-  <div class="field">
+<td>
+  
     <%= form.label :year %>
     <%= form.number_field :year %>
-  </div>
+  
+</td>
 
-  <div class="field">
+<td>
+  
     <%= form.label :director_id %>
-    <%= form.text_field :director_id %>
-  </div>
+    <%= collection_select(:movie, :director_id, Director.all, :id, :name) %>
+    <!--<%= form.text_field :director_id %> -->
+  
+</td>
 
-  <div class="actions">
+<td>
+
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  
+</td>
+
+<td>
+  
+    <%= form.label :duration %>
+    <%= form.number_field :duration %>
+  
+</td>
+
+<td>
+  
+    <%= form.label "Image URL" %>
+    <%= form.text_field :image %>
+  
+</td>
+
+
+
+
+
+<td>
+  
     <%= form.submit %>
-  </div>
+  
+</td>
 <% end %>

@@ -1,0 +1,10 @@
+    
+    <div>
+      <%= form_with(model: @movie, url: "/movies/#{@movie.id}/image/update", method: :patch, local: false, :html => { :id => "edit_description_form" }) do |form| %>
+      
+      
+      <%= form.label "Image URL" %>
+      <%= form.text_field :image %>
+
+      <% end %>
+</div>

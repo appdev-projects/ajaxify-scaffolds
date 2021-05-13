@@ -1,0 +1,12 @@
+
+$('#edit_description_form').replaceWith(` <div id="movie_<%= @movie.id %>_image">
+                  <details>
+                    <summary>
+                      Show Image
+                    </summary>
+                    
+                    <p><%=image_tag( @movie.image) %></p>
+
+                    <%= link_to 'Edit', edit_image_path(@movie), remote: true %>
+                    </details>
+            </div>`);

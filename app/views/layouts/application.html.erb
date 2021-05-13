@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VanillaRails</title>
+    <meta charset="utf-8">
+    <%= render "shared/cdn_assets.html.erb"%>
+    <title>Ajaxify Scaffolds</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,13 +14,14 @@
 
   <body>
     <nav>
-      <ul>
-        <li><%= link_to "Movies", root_path %></li>
-        <li><%= link_to "Directors", directors_path %></li>
-        <li><%= link_to "Actors", actors_path %></li>
-        <li><%= link_to "Characters", characters_path %></li>
-      </ul>
+      <%= render "shared/navbar" %>
+
+      
+        <%= yield %>
+
+      
+    
     </nav>
-    <%= yield %>
+    
   </body>
 </html>
