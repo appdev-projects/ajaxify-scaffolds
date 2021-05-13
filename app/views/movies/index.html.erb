@@ -8,10 +8,13 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Description</th>
-      <th>Duration</th>
       <th>Year</th>
       <th>Director</th>
+
+      <th>Description</th>
+      <th>Duration</th>
+      
+      
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,6 +26,8 @@
     <% @movies.each do |movie| %>
       <tr id= "movie_<%= movie.id %>">
         <td id= "title"><%= link_to movie.title, edit_title_path(movie), remote:true %></td>
+        <td><%= movie.year %></td>
+        <td id= "director"><%= link_to movie.director.name, edit_director_path(movie), remote: true %></td>
         <td>
           <div id="movie_<%= movie.id %>_description">
                   <details>
@@ -38,8 +43,8 @@
         
         </td>
         <td><%= movie.duration %></td>
-        <td><%= movie.year %></td>
-        <td id= "director"><%= link_to movie.director.name, edit_director_path(movie), remote: true %></td>
+        
+        
         <td><%= link_to 'Show', movie %></td>
         <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
         <td><%= link_to 'Destroy', movie, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>

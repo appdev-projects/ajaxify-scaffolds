@@ -19,6 +19,21 @@
   </td>
 
 <td>
+  
+    <%= form.label :year %>
+    <%= form.number_field :year %>
+  
+</td>
+
+<td>
+  
+    <%= form.label :director_id %>
+    <%= collection_select(:movie, :director_id, Director.all, :id, :name) %>
+    <!--<%= form.text_field :director_id %> -->
+  
+</td>
+
+<td>
 
     <%= form.label :description %>
     <%= form.text_area :description %>
@@ -39,19 +54,9 @@
   
 </td>
 
-<td>
-  
-    <%= form.label :year %>
-    <%= form.number_field :year %>
-  
-</td>
 
-<td>
-  
-    <%= form.label :director_id %>
-    <%= form.text_field :director_id %>
-  
-</td>
+
+
 
 <td>
   
