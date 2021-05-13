@@ -23,7 +23,7 @@ $("#movies").prepend(`
         
         
         <td><%= link_to 'Show', @movie %></td>
-        <td><%= link_to 'Edit', edit_movie_path(@movie) %></td>
+        
         <td><%= link_to 'Destroy', @movie, remote: true, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>"`);
 
