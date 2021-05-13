@@ -41,6 +41,17 @@ class MoviesController < ApplicationController
     
   end
 
+  def edit_description
+    @movie = Movie.find(params[:id])
+    
+      #format.js { render template: "movies/edit_title.js.erb" }
+      respond_to do |format|
+        format.js {render template: "movies/edit_description.js.erb"}
+      end
+    
+  end
+
+
   # POST /movies or /movies.json
   def create
     @movie = Movie.new(movie_params)
@@ -86,6 +97,25 @@ class MoviesController < ApplicationController
         format.html { redirect_to @movie, notice: "Movie was successfully updated." }
         format.json { render :show, status: :ok, location: @movie }
         format.js { render template: "movies/update_director.js.erb"}
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @movie.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+    def update_description
+    #@title = params.fetch(:movie).fetch(:title)
+    @title = @movie.title
+    @director_id = @movie.director_id
+    @description = @movie.description
+
+
+    respond_to do |format|
+      if @movie.update(movie_params)
+        format.html { redirect_to @movie, notice: "Movie was successfully updated." }
+        format.json { render :show, status: :ok, location: @movie }
+        format.js { render template: "movies/update_description.js.erb"}
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @movie.errors, status: :unprocessable_entity }
