@@ -19,31 +19,33 @@
     <tr>
       <td>
         <label for="movie_title">Title</label>
-        <input type="text" name="movie[title]" id="movie_title" />
+        <input type="text" name="movie_title" id="movie_title">
       </td>
 
       <td>
         <label for="movie_description">Description</label>
-        <textarea name="movie[description]" id="movie_description">
+        <textarea name="movie_description" id="movie_description">
         </textarea>
       </td>
       
       <td>
         <label for="movie_duration">Duration</label>
-        <input type="number" name="movie[duration]" id="movie_duration" />
+        <input type="number" name="movie_duration" id="movie_duration">
       </td>
 
       <td>
         <label for="movie_year">Year</label>
-        <input type="number" name="movie[year]" id="movie_year" />
+        <input type="number" name="movie_year" id="movie_year">
       </td>
       
       <td class="actions">
-        <% render 'form', movie: @movie %>
+        <%= render 'form', movie: Movie.new %>
         <input type="submit" name="commit" value="Create Movie">
       </td>
     
     </tr>
+
+    <tr>
       <td>
         <label for="movie_director_id">Director</label>
         <select name="movie_director_id" id="movie_director_id"><option value="14">Akira Kurosawa</option>
