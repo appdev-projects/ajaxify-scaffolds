@@ -6,22 +6,55 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Description</th>
-      <th>Duration</th>
       <th>Year</th>
       <th>Director</th>
+      <th>Description</th>
+      <th>Duration</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
+
+  <tr>
+    <td>
+      <label for="new_movie_title"> Add a New Title </label>
+      <input type="text" name="new_movie_title" id="new_movie_title">
+    </td>
+
+    <td>
+      <label for="new_movie_year"> New Title's Year </label>
+      <input type="text" name="new_movie_year" id="new_movie_year">
+    </td>
+
+    <td>
+      <label for="new_movie_director"> New Title's Director </label>
+      <input type="text" name="new_movie_director" id="new_movie_director">
+    </td>
+
+    <td>
+      <label for="new_movie_description"> New Title's Description </label>
+      <textarea type="text" name="new_movie_description" id="new_movie_description">
+      </textarea>
+    </td>
+
+    <td>
+      <label for="new_movie_duration"> New Title's Duration </label>
+      <input type="text" name="new_movie_duration" id="new_movie_duration">
+    </td>
+    
+    <td class="actions">
+        <input type="submit" name="commit" value="Create Movie" >
+    </td>
+
+  </tr>
     <% @movies.each do |movie| %>
       <tr>
         <td><%= movie.title %></td>
-        <td><%= movie.description %></td>
-        <td><%= movie.duration %></td>
         <td><%= movie.year %></td>
         <td><%= movie.director_id %></td>
+        <td><%= movie.description %></td>
+        <td><%= movie.duration %></td>
         <td><%= link_to 'Show', movie %></td>
         <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
         <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
