@@ -17,6 +17,7 @@ class MoviesController < ApplicationController
 
   # GET /movies/1/edit
   def edit
+    render template:"movies/edit.js.erb"
   end
 
   # POST /movies or /movies.json

@@ -43,16 +43,16 @@
       <input type="text" name="new_movie_duration" id="new_movie_duration">
     </td>
     
-    <td class="actions">
+    <td class="actions" id="<%= dom_id(Movie.new) %>">
        <button type="button" class="btn btn-light"> <%= link_to 'New Movie', new_movie_path, remote: true %> </button>
     </td>
 
   </tr>
     <% @movies.order(title: :asc).each do |movie| %>
       <tr id="<%= dom_id(movie)%>">
-        <td><%= movie.title %></td>
+        <td><%= link_to movie.title, edit_movie_path(movie), remote:true %></td>
         <td><%= movie.year %></td>
-        <td><%= movie.director_id %></td>
+        <td><%= Director.find_by(id: movie.director_id).name %> </td>
         <td><%= movie.description %></td>
         <td><%= movie.duration %></td>
         <td><%= link_to 'Delete', movie, method: :delete, remote:true %>
