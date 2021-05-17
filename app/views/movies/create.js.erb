@@ -1,3 +1,3 @@
 console.log("New Movie Created");
 
-$("#<%= dom_id(@movie)%>").prepend("<% j(render 'form', movie: @movie)%>");
+$("#movies_table").prepend("<% j(render 'form', movie: @movie)%>");

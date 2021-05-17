@@ -19,28 +19,28 @@
   <tr>
     <td>
       <label for="new_movie_title"> Add a New Title </label>
-      <input type="text" name="new_movie_title" id="<%= dom_id(@movie)%>">
+      <input type="text" name="new_movie_title">">
     </td>
 
     <td>
       <label for="new_movie_year"> New Title's Year </label>
-      <input type="text" name="new_movie_year" id="new_movie_year">
+      <input type="text" name="new_movie_year">">
     </td>
 
     <td>
       <label for="new_movie_director"> New Title's Director </label>
-      <input type="text" name="new_movie_director" id="new_movie_director">
+      <input type="text" name="new_movie_director">">
     </td>
 
     <td>
       <label for="new_movie_description"> New Title's Description </label>
-      <textarea type="text" name="new_movie_description" id="new_movie_description">
+      <textarea type="text" name="new_movie_description">">
       </textarea>
     </td>
 
     <td>
       <label for="new_movie_duration"> New Title's Duration </label>
-      <input type="text" name="new_movie_duration" id="new_movie_duration">
+      <input type="text" name="new_movie_duration" id="<%= dom_id(Movie.new) %>">
     </td>
     
     <td class="actions" id="<%= dom_id(Movie.new) %>">
@@ -48,6 +48,9 @@
     </td>
 
   </tr>
+  </tbody> 
+
+  <tbody id="movies_table">
     <% @movies.order(title: :asc).each do |movie| %>
       <tr id="<%= dom_id(movie)%>">
         <td><%= link_to movie.title, edit_movie_path(movie), remote:true %></td>
