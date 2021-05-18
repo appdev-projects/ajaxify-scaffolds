@@ -17,14 +17,15 @@
   <tbody>
 
   <tr>
-    <td>
-      <label for="new_movie_title"> Add a New Title </label>
-      <input type="text" name="new_movie_title">">
+  <%= form_with(model: movie, local:false) do |form| %>
+    <td id="new_moview_title">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
     </td>
 
-    <td>
-      <label for="new_movie_year"> New Title's Year </label>
-      <input type="text" name="new_movie_year">">
+    <td id="new_movie_year">
+      <%= form.label :year %>
+      <%= form.number_field :year %>
     </td>
 
     <td>
