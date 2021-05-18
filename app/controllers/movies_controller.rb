@@ -13,7 +13,7 @@ class MoviesController < ApplicationController
   # GET /movies/new
   def new
     @movie = Movie.new
-    render template:"movies/create.js.erb"
+
   end
 
   # GET /movies/1/edit

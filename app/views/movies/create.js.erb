@@ -1,5 +1,5 @@
 console.log("New Movie Created");
 
-$("#movies_table").prepend("<% j(render 'form', movie: @movie)%>");
+$("#movies_table").prepend("<%= j(render 'movies/movie', movie: @movie)%>");
 
 $("#new_movie_form").trigger("reset");
