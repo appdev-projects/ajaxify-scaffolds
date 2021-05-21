@@ -30,7 +30,7 @@
       </td>
 
       <td class="field">
-        <%= form.text_area :description %>
+        <%=  form.text_area :description %> 
       </td>
 
       <td class="field">
@@ -52,7 +52,14 @@
         <td><%= link_to movie.title, edit_movie_path(movie), remote:true %></td>
         <td><%= movie.year %></td>
         <td><%= Director.find_by(id: movie.director_id).name %> </td>
-        <td><%= movie.description %></td>
+        
+        <td>
+          <details>
+            <summary> Show Description </summary>
+            <p> <%= movie.description %> </p>
+          </details>
+        </td>
+
         <td><%= movie.duration %></td>
         <td><%= link_to 'Delete', movie, method: :delete, remote:true %>
         </td>
