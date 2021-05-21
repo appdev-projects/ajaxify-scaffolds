@@ -6,25 +6,64 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Description</th>
-      <th>Duration</th>
       <th>Year</th>
       <th>Director</th>
+      <th>Description</th>
+      <th>Duration</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody>
-    <% @movies.each do |movie| %>
-      <tr>
-        <td><%= movie.title %></td>
-        <td><%= movie.description %></td>
-        <td><%= movie.duration %></td>
+  <tbody id="new_movie_form">
+    <tr>
+    <%= form_with(model: Movie.new, local:false) do |form| %>
+      <td class="field">
+        <%= form.text_field :title %>
+      </td>
+
+      <td class="field">
+        <%= form.number_field :year %>
+      </td>
+
+      <td class="field">
+        <%= form.collection_select :director_id, Director.order(:name), :id, :name, {} %>
+      </td>
+
+      <td class="field">
+        <%=  form.text_area :description %> 
+      </td>
+
+      <td class="field">
+        <%= form.number_field :duration %>
+      </td>
+      
+      <td class="actions">
+        <button class="btn btn-light">
+        <%= form.submit "Create Movie" %> 
+        </button>
+      </td>
+      <% end %>
+    </tr>
+  </tbody> 
+
+  <tbody id="movies_table">
+    <% @movies.order(title: :asc).each do |movie| %>
+      <tr id="<%= dom_id(movie)%>">
+        <td><%= link_to movie.title, edit_movie_path(movie), remote:true %></td>
         <td><%= movie.year %></td>
-        <td><%= movie.director_id %></td>
-        <td><%= link_to 'Show', movie %></td>
-        <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= Director.find_by(id: movie.director_id).name %> </td>
+        
+        <td>
+          <details>
+            <summary> Show Description </summary>
+            <p> <%= movie.description %> </p>
+            <p> <%= link_to 'Edit', edit_movie_path(movie) , remote:true %> </p>
+          </details>
+        </td>
+
+        <td><%= movie.duration %></td>
+        <td><%= link_to 'Delete', movie, method: :delete, remote:true %>
+        </td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +71,3 @@
 
 <br>
 
-<%= link_to 'New Movie', new_movie_path %>
