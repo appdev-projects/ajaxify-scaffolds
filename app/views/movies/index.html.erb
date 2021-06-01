@@ -17,7 +17,12 @@
   <tbody>
     <% @movies.each do |movie| %>
       <tr>
-        <td><%= movie.title %></td>
+        <td class="movie_title">
+          <%= movie.title %>
+          <div style="display:none" class="title-form">
+            <input type="text" value="<%= movie.title %>" id="movie_<%= movie.title %>">
+          </div>
+        </td>
         <td><%= movie.description %></td>
         <td><%= movie.duration %></td>
         <td><%= movie.year %></td>
@@ -33,3 +38,11 @@
 <br>
 
 <%= link_to 'New Movie', new_movie_path %>
+
+<script>
+  $(document).ready(function(){
+    $(".movie_title").on('click', function(){
+      $(this).children("div.title-form").css("display", "block")
+    });
+  });
+</script>
