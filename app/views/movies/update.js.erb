@@ -1,0 +1,20 @@
+$("#movie_<%= @movie.id %>").replaceWith("<%= escape_javascript render('movie', movie: @movie) %>");
+
+$(document).ready(function(){
+     $(".movie-title").on('click', function(){
+      $(this).children("span.movie-title-text").css("display", "none");
+      $(this).children("div.movie-form").css("display", "block");
+    });   
+    $(".movie-description").on('click', function(){
+      $(this).children("span.movie-description-text").css("display", "none");
+      $(this).children("div.movie-form").css("display", "block");
+    });
+    $(".movie-duration").on('click', function(){
+      $(this).children("span.movie-duration-text").css("display", "none");
+      $(this).children("div.movie-form").css("display", "block");
+    });
+    $(".movie-year").on('click', function(){
+      $(this).children("span.movie-year-text").css("display", "none");
+      $(this).children("div.movie-form").css("display", "block");
+    });
+  });

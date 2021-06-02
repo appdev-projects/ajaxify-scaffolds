@@ -1,22 +1,4 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Movies</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Duration</th>
-      <th>Year</th>
-      <th>Director</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @movies.each do |movie| %>
-      <tr id="movie_<%= movie.id %>">
+<tr id="movie_<%= movie.id %>">
         <td class="movie-title">
           <span class="movie-title-text"><%= movie.title %></span>
           <div class="movie-form" style="display:none;">
@@ -63,31 +45,3 @@
         <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
         <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Movie', new_movie_path %>
-
-<script>
-  $(document).ready(function(){
-     $(".movie-title").on('click', function(){
-      $(this).children("span.movie-title-text").css("display", "none");
-      $(this).children("div.movie-form").css("display", "block");
-    });   
-    $(".movie-description").on('click', function(){
-      $(this).children("span.movie-description-text").css("display", "none");
-      $(this).children("div.movie-form").css("display", "block");
-    });
-    $(".movie-duration").on('click', function(){
-      $(this).children("span.movie-duration-text").css("display", "none");
-      $(this).children("div.movie-form").css("display", "block");
-    });
-    $(".movie-year").on('click', function(){
-      $(this).children("span.movie-year-text").css("display", "none");
-      $(this).children("div.movie-form").css("display", "block");
-    });
-  });
-</script>
