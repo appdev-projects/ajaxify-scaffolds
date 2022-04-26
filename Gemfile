@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.3'
+ruby '3.0.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3', '>= 6.1.3.1'
@@ -13,6 +13,8 @@ gem 'puma', '~> 5.0'
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker', '~> 5.0'
+# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
+gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
@@ -55,27 +57,27 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # appdev gems
 # ==================
+gem 'draft_generators', github: 'firstdraft/draft_generators', branch: 'winter-2020'
 gem 'active_link_to'
-gem 'awesome_print'
+gem "strip_attributes"
+gem "validate_url"
 gem 'devise'
 gem 'faker'
-gem 'pry-rails'
 gem 'pundit'
 gem 'rack-canonical-host'
-gem 'rollbar'
-gem 'strip_attributes'
-gem 'skylight'
-gem 'validate_url'
 group :development do
   gem 'annotate'
+  gem 'awesome_print'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'bullet'
-  gem 'draft_generators', github: 'firstdraft/draft_generators', branch: 'winter-2020'
+  gem 'pry-rails'
   gem 'rails_db'
   gem 'rails-erd'
-  gem 'rubocop'
-  gem 'rubocop-performance'
-  gem 'rubocop-rails'
-  gem 'web_git', github: 'firstdraft/web_git', branch: 'spring2020'
+  gem 'rollbar'
+  gem "standard", require: false
+  gem "rubocop-rails", require: false
+  gem "rubocop-rspec", require: false
+  gem 'skylight'
+  gem 'web_git', github: 'firstdraft/web_git'
 end
