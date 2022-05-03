@@ -1,0 +1,4 @@
+console.log('works')
+
+
+$("#movie_<%=@movie.id%>_title").replaceWith("<%= j(render('edit_title', movie: @movie)) %>")

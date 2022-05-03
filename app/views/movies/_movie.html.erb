@@ -1,8 +1,9 @@
-      <tr id="movie_<%= movie.id %> ">
-        <td><%= movie.title %></td>
-        <td><%= movie.year %></td>
-        <td><%= movie.director.name %></td>
-        <td><%= movie.description %></td>
-        <td><%= movie.duration %></td>
-        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      
+<tr id="movie_<%= movie.id %> ">
+  <td id="movie_<%= movie.id %>_title"><%= link_to movie.title, "movies/" + movie.id.to_s + "/edit", remote: true %></td>
+  <td><%= movie.year %></td>
+  <td><%= movie.director.name %></td>
+  <td><%= movie.description %></td>
+  <td><%= movie.duration %></td>
+  <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>

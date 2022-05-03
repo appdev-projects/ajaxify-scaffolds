@@ -1,2 +1,14 @@
 console.log("it's working")
-$
+
+
+var added_movie = $("<%= j(render @movie) %>");
+
+added_movie.hide();
+
+console.log("<%= dom_id(@movie) %>")
+
+$("#new_movie_form").after(added_movie);
+
+added_movie.slideDown();
+
+$("# #comment_body").val("");

@@ -1,4 +1,4 @@
-<td id="<%= dom_id(movie)%>">
+<td id="movie_<%= dom_id(movie)%>">
   <%= form_with(model: movie, local: false) do |form| %>
     <% if movie.errors.any? %>
       <div id="error_explanation">
@@ -11,8 +11,8 @@
         </ul>
       </div>
     <% end %>
-    <tr>
-    <td>
+    <tr id = "new_movie_form" >
+    <td id = "movie_title_field" >
       <%= form.label :title, class: "sr-only"  %>
       <%= form.text_field :title, class: "form-control" %>
       
