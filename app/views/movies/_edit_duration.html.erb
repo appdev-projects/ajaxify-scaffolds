@@ -1,0 +1,8 @@
+<td id="<%= dom_id(movie)%>_duration">
+
+  <%= form_with(model: movie, local: false) do |form| %>
+      
+      <%= form.label :duration, class: "sr-only"  %>
+      <%= form.text_field :duration, class: "form-control" %>
+  <% end %>
+</td>
