@@ -6,7 +6,7 @@ Let's practice our Rails Ajax skills in a simple, isolated setting: let's genera
 
 The starting point of this project is a vanilla app in which I generated our familiar movies, directors, actors, and characters as scaffolds; added sample data; and that's about it.
 
-Your job is to take these raw scaffolds and practice Ajax on them. [Here's a target](http://ajaxify-scaffolds.matchthetarget.com/) to give you something to shoot for, but you can get as creative as you like; add Bootstrap, choose different interactions, generate more scaffolds if you like.
+Your job is to take these raw scaffolds and practice Ajax on them. [Here's a target](http://ajaxify-scaffolds.matchthetarget.com/) to give you something to shoot for, but you can make the UI whatever you like. `<table>`s can be awkward to work with, so you might want to replace the scaffold-generated markup with something like (perhaps a Bootstrap card per record, for example).
 
 Ask lots of questions about Ajax; this is the last major required skill you need to be solid on before you can 1) start taking on professional Rails projects, or 2) decide to delve into a new role: native app development.
 
