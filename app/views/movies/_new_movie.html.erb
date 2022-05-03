@@ -1,0 +1,37 @@
+<form id="<%= dom_id(Movie.new) %>_form" action="/movies" accept-charset="UTF-8" data-remote="true" method="post">
+      <tr>
+        <td>
+          <label for="movie_title">Title</label>
+          <input type="text" name="movie[title]" id="movie_title" />
+        </td>
+
+        <td>
+          <label for="movie_year">Year</label>
+          <input type="number" name="movie[year]" id="movie_year" />
+        </td>
+
+        <td>
+          <label for="movie_director_id">Director</label>
+          <select name="movie[director_id]" id="movie_director_id"><option value="14">Akira Kurosawa</option>
+            <% Director.order(:name).each do |director| %>
+                    <option value="<%= director.id %>">
+                      <%= director.name %>
+                      <% end %>
+        </td>
+
+        <td>
+          <label for="movie_description">Description</label>
+          <textarea name="movie[description]" id="movie_description">
+</textarea>
+        </td>
+
+        <td>
+          <label for="movie_duration">Duration</label>
+          <input type="number" name="movie[duration]" id="movie_duration" />
+        </td>
+
+        <td class="actions">
+          <input type="submit" name="commit" value="Create Movie" data-disable-with="Create Movie" />
+        </td>
+      </tr>
+    </form>

@@ -1,0 +1,8 @@
+      <tr>
+        <td><%= movie.title %></td>
+        <td><%= movie.year %></td>
+        <td><%= movie.director.name %></td>
+        <td><%= movie.description %></td>
+        <td><%= movie.duration %></td>
+        <td><%= link_to 'Destroy', movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
