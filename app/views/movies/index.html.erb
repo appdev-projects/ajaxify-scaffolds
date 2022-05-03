@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <%= render "movies/new_movie", movie: @movies %>
+    <%= render "movies/new_movie", movie: Movie.new %>
     <% @movies.each do |movie| %>
       <%= render "movies/movie", movie: movie %>
     <% end %>
