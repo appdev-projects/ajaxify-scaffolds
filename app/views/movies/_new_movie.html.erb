@@ -18,12 +18,12 @@
       
     </td>
 
-    <td>
+    <td id = "movie_year_field" >
       <%= form.label :year, class: "sr-only"  %>
       <%= form.number_field :year, class: "form-control" %>
     </td>
 
-    <td>
+    <td id = "movie_director_field" >
       <%= form.label :director, class: "sr-only"  %>
       <%= form.select :director_id, 
         options_from_collection_for_select(Director.order(:name), :id, :name),   
@@ -31,12 +31,12 @@
         
         </td>
 
-        <td>
+        <td id = "movie_description_field">
           <%= form.label :description, class: "sr-only"  %>
           <%= form.text_area :description, class: "form-control" %>
         </td>
 
-        <td>
+        <td id = "movie_duration_field">
           <%= form.label :duration, class: "sr-only"  %>
           <%= form.number_field :duration, class: "form-control" %>
         </td>
