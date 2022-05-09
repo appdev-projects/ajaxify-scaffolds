@@ -1,0 +1,9 @@
+<div id="<%= dom_id(movie) %>_title">
+  <%= link_to movie_edit_title_path(movie), remote: true do %>
+    <% if movie.title.present? %>
+      <%= movie.title %>
+    <% else %>
+      Add title
+    <% end %>
+  <% end %>
+</div>    

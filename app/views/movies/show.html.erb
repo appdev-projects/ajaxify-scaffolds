@@ -6,16 +6,6 @@
 </p>
 
 <p>
-  <strong>Description:</strong>
-  <%= @movie.description %>
-</p>
-
-<p>
-  <strong>Duration:</strong>
-  <%= @movie.duration %>
-</p>
-
-<p>
   <strong>Year:</strong>
   <%= @movie.year %>
 </p>
@@ -23,6 +13,16 @@
 <p>
   <strong>Director:</strong>
   <%= @movie.director_id %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @movie.description %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @movie.duration %>
 </p>
 
 <%= link_to 'Edit', edit_movie_path(@movie) %> |
