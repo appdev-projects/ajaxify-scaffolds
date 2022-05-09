@@ -1,0 +1,21 @@
+<tr id="<%= dom_id(movie) %>">
+  <td>
+    <%= render "movies/movie/title", movie: movie %>
+  </td>
+  <td>
+    <%= render "movies/movie/year", movie: movie %>
+  </td>
+  <td>
+    <%= render "movies/movie/director_id", movie: movie %>
+  </td>
+  <td>
+    <%= render "movies/movie/description", movie: movie %>
+  </td>
+  <td>
+    <%= render "movies/movie/duration", movie: movie %>
+  </td>
+
+  <td>
+    <%= link_to 'Destroy', movie, method: :delete, remote: true %>
+  </td>
+</tr>

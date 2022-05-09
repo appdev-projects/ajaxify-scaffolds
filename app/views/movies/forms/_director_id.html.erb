@@ -1,0 +1,8 @@
+<div id="<%= dom_id(movie) %>_director_id_form">
+  <%= form_with(model: movie, local: false) do |form| %>
+    <div class="field">
+      <%= form.label :director_id, for: "#{dom_id(movie)}_director_id" %>
+      <%= form.collection_select :director_id, Director.order(:name), :id, :name, {}, onchange: 'Rails.fire(this.form, "submit")', id: "#{dom_id(movie)}_director_id" %>
+    </div>
+  <% end %>
+</div>

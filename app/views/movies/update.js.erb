@@ -1,0 +1,3 @@
+<% @movie.saved_changes.keys.reject { |v| v == "updated_at" }.each do |changed_attribute| %>
+  $("#<%= dom_id(@movie) %>_<%= changed_attribute %>_form").replaceWith("<%= j(render "movies/movie/#{changed_attribute}", movie: @movie) %>");  
+<% end %>

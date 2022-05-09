@@ -1,0 +1,8 @@
+<div id="<%= dom_id(movie) %>_title_form">
+  <%= form_with(model: movie, local: false) do |form| %>
+    <div class="field">
+      <%= form.label :title, for: "#{dom_id(movie)}_title" %>
+      <%= form.text_field :title, id: "#{dom_id(movie)}_title" %>
+    </div>
+  <% end %>
+</div>

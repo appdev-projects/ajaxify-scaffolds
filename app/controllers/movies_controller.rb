@@ -1,6 +1,15 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: %i[ show edit update destroy ]
-
+  before_action :set_movie, only: %i[
+    show
+    edit
+    update
+    destroy
+    edit_title
+    edit_duration
+    edit_year
+    edit_description
+    edit_director_id
+  ]
   # GET /movies or /movies.json
   def index
     @movies = Movie.all
@@ -27,6 +36,7 @@ class MoviesController < ApplicationController
       if @movie.save
         format.html { redirect_to @movie, notice: "Movie was successfully created." }
         format.json { render :show, status: :created, location: @movie }
+        format.js
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @movie.errors, status: :unprocessable_entity }
@@ -40,6 +50,7 @@ class MoviesController < ApplicationController
       if @movie.update(movie_params)
         format.html { redirect_to @movie, notice: "Movie was successfully updated." }
         format.json { render :show, status: :ok, location: @movie }
+        format.js
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @movie.errors, status: :unprocessable_entity }
@@ -53,13 +64,15 @@ class MoviesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to movies_url, notice: "Movie was successfully destroyed." }
       format.json { head :no_content }
+      format.js
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_movie
-      @movie = Movie.find(params[:id])
+      movie_id = params[:id] || params[:movie_id]
+      @movie = Movie.find(movie_id)
     end
 
     # Only allow a list of trusted parameters through.
