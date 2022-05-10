@@ -53,6 +53,9 @@ class DirectorsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to directors_url, notice: "Director was successfully destroyed." }
       format.json { head :no_content }
+      format.js do
+        render template "directors/destroy.js.erb"
+      end
     end
   end
 
