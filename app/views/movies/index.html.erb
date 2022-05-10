@@ -14,6 +14,25 @@
     </tr>
   </thead>
 
+   <%= form_with(model: Movie.new, local: false, id: "new_movie_form") do |form| %>
+      <tr>
+        <td><%= form.label :title %>
+        <%= form.text_field :title %></td>
+        <td><%= form.label :description %>
+        <%= form.text_area :description %></td>
+        <td><%= form.label :duration %>
+        <%= form.number_field :duration %></td>
+        <td><%= form.label :year %>
+        <%= form.number_field :year %></td>
+        <td> <%= form.label :director_id %>
+        <%= form.collection_select :director_id, Director.order(:name), :id, :name %></td>
+        <td class="actions">
+        <%= form.submit %>
+      </td>
+      </tr>
+
+   <% end %>
+
   <tbody>
     <% @movies.each do |movie| %>
       <tr>
