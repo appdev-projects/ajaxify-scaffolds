@@ -1,0 +1,4 @@
+console.log("new -- howdy");
+
+$('#new_movie_create_form').after('<%= j(render "update", movie: @movie) %>');
+$('#new_movie_form').trigger("reset");
