@@ -1,0 +1,18 @@
+<div id="<%= dom_id(movie) %>_description">
+  <% if movie.description.blank? %>
+    <%= link_to movie_edit_description_path(movie), remote: true do %>
+      Add description
+    <% end %>    
+  <% else %>
+    <details>
+      <summary>
+        Show description
+      </summary>
+      
+      <%= simple_format movie.description %>
+      <%= link_to movie_edit_description_path(movie), remote: true do %>
+        Edit
+      <% end %>
+    </details>
+  <% end %>
+</div>
