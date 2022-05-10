@@ -1,0 +1,9 @@
+<div id="<%= dom_id(movie) %>_director_id">
+  <%= link_to movie_edit_director_id_path(movie), remote: true do %>
+    <% if movie.director.present? %>
+      <%= movie.director.name %>
+    <% else %>
+      Add director
+    <% end %>
+  <% end %>
+</div>  

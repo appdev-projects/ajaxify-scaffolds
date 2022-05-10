@@ -1,7 +1,7 @@
 <tr id="movie_<%= movie.id %>">
   <td id="movie_<%= movie.id %>_title"><%= link_to movie.title, "movies/" + movie.id.to_s + "/edit", remote: true %></td>
   <td id="movie_<%= movie.id %>_year"><%= link_to movie.year, "movies/" + movie.id.to_s + "/edit", remote: true %></td>
-  <td><%= movie.director.name %></td>
+  <td id="movie_<%= movie.id %>_director"><%= link_to movie.director.name, "movies/" + movie.id.to_s + "/edit", remote: true %></td>
   <td id="movie_<%= movie.id %>_description">
     <details>
       <summary>
