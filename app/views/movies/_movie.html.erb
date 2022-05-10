@@ -1,0 +1,21 @@
+<tr id="movie_<%= movie.id %>">
+  <td id="movie_<%= movie.id %>_title"><%= link_to movie.title, "movies/" + movie.id.to_s + "/edit", remote: true %></td>
+  <td id="movie_<%= movie.id %>_year"><%= link_to movie.year, "movies/" + movie.id.to_s + "/edit", remote: true %></td>
+  <td id="movie_<%= movie.id %>_director"><%= link_to movie.director.name, "movies/" + movie.id.to_s + "/edit", remote: true %></td>
+  <td id="movie_<%= movie.id %>_description">
+    <details>
+      <summary>
+        Show Descriptions
+      </summary>
+      <p><%= movie.description %></p>
+    </details>
+  </td>
+  <td id="movie_<%= movie.id %>_duration"><%= link_to movie.duration, "movies/" + movie.id.to_s + "/edit", remote: true %></td>
+  <td><%= link_to movie, 
+            method: :delete,
+            remote: true, 
+            class: "btn btn-link btn-sm text-muted" do %>
+      <i class="fas fa-trash fa-fw"></i>
+    <% end %>
+
+  </tr>

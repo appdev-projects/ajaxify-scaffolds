@@ -1,0 +1,6 @@
+
+$("#movie_<%=@movie.id%>_title").replaceWith("<%= j(render('edit_title', movie: @movie)) %>");
+
+$("#movie_<%=@movie.id%>_year").replaceWith("<%= j(render('edit_year', movie: @movie)) %>");
+
+$("#movie_<%=@movie.id%>_duration").replaceWith("<%= j(render('edit_duration', movie: @movie)) %>");

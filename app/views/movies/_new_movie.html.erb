@@ -1,0 +1,49 @@
+<td id="movie_<%= dom_id(movie)%>">
+  <%= form_with(model: movie, local: false) do |form| %>
+    <% if movie.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(movie.errors.count, "error") %> prohibited this movie from being saved:</h2>
+
+        <ul>
+          <% movie.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <tr id = "new_movie_form" >
+    <td id = "movie_title_field" >
+      <%= form.label :title, class: "sr-only"  %>
+      <%= form.text_field :title, class: "form-control" %>
+      
+    </td>
+
+    <td id = "movie_year_field" >
+      <%= form.label :year, class: "sr-only"  %>
+      <%= form.number_field :year, class: "form-control" %>
+    </td>
+
+    <td id = "movie_director_field" >
+      <%= form.label :director, class: "sr-only"  %>
+      <%= form.select :director_id, 
+        options_from_collection_for_select(Director.order(:name), :id, :name),   
+        class: "form-control" %>
+        
+        </td>
+
+        <td id = "movie_description_field">
+          <%= form.label :description, class: "sr-only"  %>
+          <%= form.text_area :description, class: "form-control" %>
+        </td>
+
+        <td id = "movie_duration_field">
+          <%= form.label :duration, class: "sr-only"  %>
+          <%= form.number_field :duration, class: "form-control" %>
+        </td>
+
+        <td class="actions">
+            <%= form.submit class: "btn btn-outline-secondary btn-block" %>
+        </td>
+      </tr>
+  <% end %>
+</td>
