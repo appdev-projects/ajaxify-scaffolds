@@ -1,0 +1,5 @@
+console.log("howdy from destroy");
+
+$("#<%= dom_id(@movie) %>").fadeOut("slow", function() {
+  $(this).remove();
+});

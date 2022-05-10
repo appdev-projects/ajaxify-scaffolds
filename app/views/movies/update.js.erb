@@ -1,0 +1,3 @@
+console.log("update -- howdy");
+
+$('#<%= dom_id(@movie) %>').replaceWith('<%= j(render "update", movie: @movie) %>');

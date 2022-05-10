@@ -1,0 +1,6 @@
+
+<%= form_with(model: movie, local: false) do |form| %>
+  <div class="field">
+      <%= form.collection_select :director_id, Director.order(:name), :id, :name, {}, onchange: 'Rails.fire(this.form, "submit")' %>
+  </div>
+<% end %>

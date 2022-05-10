@@ -1,0 +1,8 @@
+  <tr id=<%=dom_id(movie)%>>
+    <td id=<%= dom_id(movie) + "_title" %>><%= link_to movie.title, movie_edit_title_path(movie), remote: true %></td>
+    <td><%= movie.description %></td>
+    <td id=<%= dom_id(movie) + "_duration" %>><%= link_to "#{movie.duration} minutes", movie_edit_duration_path(movie), remote: true %></td>
+    <td id=<%= dom_id(movie) + "_year"%> ><%= link_to movie.year, movie_edit_year_path(movie), remote: true %></td>
+    <td id=<%= dom_id(movie) + "_director" %> ><%= link_to movie.director.name, edit_movie_path(movie), remote: true %></td>
+    <td><%= link_to 'Destroy', movie, method: :delete, remote: true %></td>
+  </tr>

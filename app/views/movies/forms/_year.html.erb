@@ -1,0 +1,5 @@
+<%= form_with(model: movie, local: false) do |form| %>
+  <div class="field">
+    <%= form.text_field :year, onchange: "Rails.fire(this.form, 'submit')" %>
+  </div>
+<% end %>

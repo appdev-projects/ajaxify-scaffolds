@@ -1,0 +1,3 @@
+console.log("howdy from edit director");
+
+$('#<%= dom_id(@movie) %>_year > a').replaceWith("<%= j(render "movies/forms/director", movie: @movie) %>")

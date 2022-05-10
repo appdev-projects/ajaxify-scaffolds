@@ -1,0 +1,3 @@
+console.log("howdy from edit duration");
+
+$('#<%= dom_id(@movie) %>_duration > a').replaceWith("<%= j(render "movies/forms/duration", movie: @movie) %>")
