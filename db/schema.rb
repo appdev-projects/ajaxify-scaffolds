@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_07_150012) do
+ActiveRecord::Schema.define(version: 2022_04_18_201117) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "citext"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2021_05_07_150012) do
   create_table "comments", force: :cascade do |t|
     t.bigint "author_id", null: false
     t.bigint "photo_id", null: false
-    t.text "body"
+    t.text "body", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["author_id"], name: "index_comments_on_author_id"
@@ -73,12 +73,6 @@ ActiveRecord::Schema.define(version: 2021_05_07_150012) do
     t.index ["photo_id"], name: "index_likes_on_photo_id"
   end
 
-  create_table "meetings", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -89,14 +83,6 @@ ActiveRecord::Schema.define(version: 2021_05_07_150012) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["director_id"], name: "index_movies_on_director_id"
-  end
-
-  create_table "notes", force: :cascade do |t|
-    t.bigint "meeting_id", null: false
-    t.string "body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["meeting_id"], name: "index_notes_on_meeting_id"
   end
 
   create_table "photos", force: :cascade do |t|
@@ -123,10 +109,6 @@ ActiveRecord::Schema.define(version: 2021_05_07_150012) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "photos_count", default: 0
-    t.string "avatar_image", default: "avatar_placeholder.png"
-    t.string "website"
-    t.string "bio"
-    t.string "name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
@@ -141,6 +123,5 @@ ActiveRecord::Schema.define(version: 2021_05_07_150012) do
   add_foreign_key "likes", "photos"
   add_foreign_key "likes", "users", column: "fan_id"
   add_foreign_key "movies", "directors"
-  add_foreign_key "notes", "meetings"
   add_foreign_key "photos", "users", column: "owner_id"
 end
