@@ -1,0 +1,8 @@
+<div id="<%= dom_id(movie) %>_duration_form">
+  <%= form_with(model: movie, local: false) do |form| %>
+    <div class="field">
+      <%= form.label :duration, for: "#{dom_id(movie)}_duration" %>
+      <%= form.text_field :duration, id: "#{dom_id(movie)}_duration" %>
+    </div>
+  <% end %>
+</div>
