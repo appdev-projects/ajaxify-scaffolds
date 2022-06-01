@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-  before_action :set_movie, only: %i[ show edit update destroy ]
+  before_action :set_movie, only: %i[ show edit update destroy edit_title edit_duration edit_year edit_description edit_director_id ]
 
   # GET /movies or /movies.json
   def index
@@ -25,7 +25,7 @@ class MoviesController < ApplicationController
 
     respond_to do |format|
       if @movie.save
-        format.html { redirect_to @movie, notice: "Movie was successfully created.", remote: true }
+        format.html { redirect_to @movie, notice: "Movie was successfully created." }
         format.json { render :show, status: :created, location: @movie }
         format.js
       else
@@ -41,6 +41,7 @@ class MoviesController < ApplicationController
       if @movie.update(movie_params)
         format.html { redirect_to @movie, notice: "Movie was successfully updated." }
         format.json { render :show, status: :ok, location: @movie }
+        format.js
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @movie.errors, status: :unprocessable_entity }
