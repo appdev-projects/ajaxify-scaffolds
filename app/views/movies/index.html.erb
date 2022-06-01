@@ -12,9 +12,20 @@
       <th>Director</th>
       <th colspan="3"></th>
     </tr>
+
+    <tr id="new_movie_form">
+      <%=form_with(model: Movie.new, local: false) do |form|%>
+        <th id="new_movie_title"><%= form.text_field :title %></th>
+        <th id="new_movie_description"><%= form.text_area :description %></th>
+        <th id="new_movie_duration"><%= form.number_field :duration %></th>
+        <th id="new_movie_year"><%= form.number_field :year %></th>
+        <th id="new_movie_director_id"><%= form.text_field :director_id %></th>
+        <th class="actions"><%=form.submit%></th>
+      <%end%>
+    </tr>
   </thead>
 
-  <tbody>
+  <tbody id="movie_body">
     <% @movies.each do |movie| %>
       <tr>
         <td><%= movie.title %></td>
