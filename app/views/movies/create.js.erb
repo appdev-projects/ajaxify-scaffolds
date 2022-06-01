@@ -1,0 +1,18 @@
+var body = $("#movie_body");
+
+var added_movie = '<tr>' + 
+                  '<td>' + <%=@movie.title%> + '</td>' +
+                  '<td>' + <%=@movie.description%> + '</td>' +
+                  '<td>' + <%=@movie.duration%> + '</td>' +
+                  '<td>' + <%=@movie.year%> + '</td>' +
+                  '<td>' + <%=@movie.director_id%> + '</td>' +
+                  '<td>' + <%=@movie.title%> + '</td>' +
+                  '<td>' + '<%= j(link_to 'Show', @movie) %>' + '</td>' +
+                  '<td>' + '<%= j(link_to 'Edit', edit_movie_path(@movie)) %>' + '</td>' +
+                  '<td>' + '<%= j(link_to 'Destroy', @movie, method: :delete, data: { confirm: 'Are you sure?' }) %>' + '</td>' +
+                  '</tr>';
+
+var movie = $(added_movie);
+movie.hide();
+body.after(movie);
+movie.fadeIn(5000);
